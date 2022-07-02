@@ -1,0 +1,29 @@
+<section class="text-center p-2">
+  <p>
+    <b>{{ title }} </b>
+  </p>
+  <form #createACtivities="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Codigo</mat-label>
+      <input
+        matInput
+        required
+        #verificationCode
+        maxlength="6"
+        placeholder="******"
+        name="code"
+        #coder="ngModel"
+        [(ngModel)]="code"
+        required
+      />
+      <mat-hint align="end">{{ verificationCode.value.length }} / 6</mat-hint>
+    </mat-form-field>
+    <button
+      class="btn btn-success m-2"
+      [disabled]="!createACtivities.valid"
+      [routerLink]="['/passwordRecovery/code-verification/1']"
+    >
+      Enviar
+    </button>
+  </form>
+</section>

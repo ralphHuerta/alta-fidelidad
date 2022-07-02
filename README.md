@@ -1,4 +1,9 @@
 # AltaFidelidad
+test application login, credentials: 
+email: 'prueba@email.com'
+password:'pas123.'
+
+Verification code:223344
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 

@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning row">
+  <a class="navbar-brand col-4" [routerLink]="['/home']" >Alta fidelidad</a>
+
+  <mat-form-field appearance="fill" class="widthData col-3">
+    <mat-label>Léame</mat-label>
+    <mat-select name="lee">
+      <mat-option *ngFor="let leer of lee" [value]="leer.value">
+        {{ leer.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <a class="navbar-brand col-1" [routerLink]="['/']" >Salir</a>
+
+</nav>

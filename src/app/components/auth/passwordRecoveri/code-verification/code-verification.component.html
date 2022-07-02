@@ -1,0 +1,17 @@
+<section class="text-center p-2">
+  <form #createACtivities="ngForm" (ngSubmit)="send()">
+    <p>
+      <b> {{ title }} </b>
+    </p>
+    <input
+      type="number"
+      name="code"
+      #codes="ngModel"
+      [(ngModel)]="code"
+      placeholder="******"
+      onKeyPress="if(this.value.length==6) return false;"
+      class=" m-1"
+    />
+    <button type="submit" class="btn btn-success m-1">Enviar</button>
+  </form>
+</section>

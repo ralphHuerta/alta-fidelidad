@@ -1,0 +1,97 @@
+<div class="container-fluid mr-0 pe-0">
+  <div class="formGroup row formRegister">
+    <div class="div-card col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <h1 class="text-welcome">Registrate</h1>
+      <form
+        (ngSubmit)="submit()"
+        [formGroup]="createdForm"
+        class="form-register"
+      >
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" required formControlName="name" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label>Apellidos</mat-label>
+            <input matInput type="text" required formControlName="lastname" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label>curp</mat-label>
+            <input matInput type="text" required formControlName="curp" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label>RFC</mat-label>
+            <input matInput type="text" required formControlName="rfc" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput type="data" required formControlName="data" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" required formControlName="email" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label> Contraseña </mat-label>
+            <input
+              matInput
+              type="password"
+              minlength="6"
+              formControlName="password"
+            />
+          </mat-form-field>
+          <div
+            *ngIf="
+              createdForm?.controls?.password?.errors?.pattern &&
+              createdForm?.controls?.password?.touched
+            "
+          >
+            La contraseña no es valida debe llebar numeros, letras y caracteres,
+            minimo 6.
+          </div>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="inputWidth">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input
+              matInput
+              type="password"
+              minlength="6"
+              formControlName="confirmPassword"
+              placeholder="Confirm Password"
+            />
+          </mat-form-field>
+        </div>
+      </form>
+      <div class="divButtRegister">
+        <button
+          mat-raised-button
+          class="butRegister"
+          color="primary"
+          type="submit"
+          [disabled]="!createdForm.valid"
+          (click)="submit()"
+          [routerLink]="['/emailConfirmation']"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 pe-0 imag">
+      <img class="imgPosition" src="../../../../assets/background.png" alt="" />
+    </div>
+  </div>
+</div>

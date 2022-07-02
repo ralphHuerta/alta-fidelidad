@@ -1,0 +1,17 @@
+<div class="text-center">
+  <b>
+    <p>¿Como desea recibir el comprobante?</p>
+    <p>Ingrese el numero o el correo electronico</p>
+  </b>
+  <mat-form-field class="example-full-width m-2" appearance="fill">
+    <mat-label>Numero de telefono</mat-label>
+    <input matInput required type="phone" placeholder="2324445" required />
+  </mat-form-field>
+  <b> ó </b>
+  <mat-form-field class="example-full-width m-2" appearance="fill">
+    <mat-label>Correo electronico</mat-label>
+    <input matInput required type="email" placeholder="@correo.mx" required />
+  </mat-form-field>
+  <br />
+  <button class="btn btn-success" [routerLink]="['/home']">Enviar</button>
+</div>

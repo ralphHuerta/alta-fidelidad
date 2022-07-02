@@ -1,0 +1,105 @@
+<button class="btn btn-primary m-2" [routerLink]="['/home']">Regresar</button>
+<div class="m-3">
+  <p>Ingresa la cantidad a transferir:</p>
+  <mat-form-field appearance="fill" class="widthName marginInput">
+    <mat-label>Cantidad </mat-label>
+    <input class="inputs"  type="text" matInput placeholder="Nombre" name="amounts" #amounts="ngModel"  [(ngModel)]="amount" required>
+  </mat-form-field>
+</div>
+<section class="p-3 " >
+  <div class=" row text-center border border-primary">
+    <div class="row">
+      <p class="col"><b>Tarjeta de crédito o débito</b></p>
+      <p class="col"><b>{{amount}}$ </b></p>
+    </div>
+   
+    <form [formGroup]="createdForm" class="m-3 row">
+      <div class="col-4 col-sm-3 col-md-3 col-lg-2 col-xl-2" >
+        <img
+          loading="lazy"
+          src="//images.ctfassets.net/1sv59kqumaqp/try0QEtPp1GuEgXVJLpnG/3475e0d6c45002e05a6a1c72d4f584df/visa.svg?h=32&amp;fm=png"
+          alt="visa"
+          class="ng-star-inserted m-1"
+        />
+        <img
+          loading="lazy"
+          src="//images.ctfassets.net/1sv59kqumaqp/1fitpJYIVsdVDg81AdsW3l/212573afd23c179c3cc97a552a1a862b/mastercard.svg?h=32&amp;fm=png"
+          alt="mastercard"
+          class="ng-star-inserted"
+        />
+      </div>
+      <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
+        <mat-form-field appearance="fill" >
+          <mat-label>Numero de cuenta</mat-label>
+          <input
+            matInput
+            type="number"
+            formControlName="check"
+            placeholder="XXXX XXXX XXXX XXXX"
+            onKeyPress="if(this.value.length==16) return false;"
+          />  
+        </mat-form-field>
+      </div>
+      
+      <div class="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
+        <p class="labelDate">Fecha de expiración</p>
+        <mat-form-field appearance="fill" class="m-1 widthData">
+          <mat-label>Año de expiración</mat-label>
+          <mat-select formControlName="years" name="food">
+            <mat-option *ngFor="let year of yeards" [value]="year.value" >
+              {{ year.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="widthData">
+          <mat-label>Mes de expiración</mat-label>
+          <mat-select formControlName="month" name="food">
+            <mat-option *ngFor="let month of month" [value]="month.value" >
+              {{ month.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="fill" class="  col-3 col-sm-3 col-md-3 col-lg-2 col-xl-1">
+        <mat-label>CVV</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="cvv"
+          placeholder="***"
+          onKeyPress="if(this.value.length==3) return false;"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="col-5 col-sm-4 col-md-4 col-lg-3 col-xl-2 ">
+        <mat-label>Nombre del titular</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="name"
+          placeholder="juan Hernandez"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="  col-5 col-sm-4 col-md-4 col-lg-3 col-xl-2 ">
+        <mat-label>Correo electronico</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="***@correo.com"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 " >
+        <mat-label>Codigo postal</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="codePostal"
+          placeholder="73909"
+        />
+      </mat-form-field>
+      <div  class="col-12">
+      <button class="btn btn-success" [routerLink]="['/SuccessfulTransactions']" [disabled]="!createdForm.valid"> Acceptar</button>
+    </div>
+    </form>
+  </div>
+</section>

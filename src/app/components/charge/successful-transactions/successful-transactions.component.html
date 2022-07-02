@@ -1,0 +1,11 @@
+<section class="text-center p-2">
+  <p><b>Transacción exitosa </b></p>
+  <button class="btn">
+    <img src="../../../../assets/verificacion.jpg" class="btnOk" alt="" />
+  </button>
+  <p>Desea recibir el comprobante de la operación</p>
+  <button class="btn btn-success m-2" (click)="sen()">Si</button>
+  <button class="btn btn-info m-2" [routerLink]="['/home']">No</button>
+
+  <app-send-invoice *ngIf="send"> </app-send-invoice>
+</section>
